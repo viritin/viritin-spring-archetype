@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>in.virit</groupId>
+  <artifactId>spring-app-archetype</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+  
+  <description>A simple app stubb for Vaadin and Spring Boot</description>
+
+  <name>spring-app-archetype</name>
+  
+  <developers>
+      <developer>
+          <name>Matti Tahvonen</name>
+          <organization>virit.in</organization>
+      </developer>
+  </developers>
+  
+  <licenses>
+     <license>
+         <name>Apache License Version 2.0</name>
+         <distribution>repo</distribution>
+         <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+     </license>
+  </licenses>
+  
+  <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <scm>
+      <url>https://github.com/viritin/viritin-spring-archetype</url>
+      <connection>scm:git:git://github.com/viritin/viritin-spring-archetype.git</connection>
+      <developerConnection>scm:git:ssh://git@github.com:/viritin/viritin-spring-archetype.git</developerConnection>
+  </scm>
+  <distributionManagement>
+      <snapshotRepository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+      <repository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
+  </distributionManagement>
+  
+
+  <build>
+    <plugins>
+      <plugin>
+           <groupId>org.sonatype.plugins</groupId>
+           <artifactId>nexus-staging-maven-plugin</artifactId>
+           <version>1.6.7</version>
+           <extensions>true</extensions>
+           <configuration>
+               <serverId>ossrh</serverId>
+               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+               <autoReleaseAfterClose>false</autoReleaseAfterClose>
+           </configuration>
+       </plugin>
+    </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>3.0.0</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+            <!-- Dough, a broken beta release is picked without this! -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>2.5.3</version>
+            <configuration>
+                <releaseProfiles>release</releaseProfiles>
+            </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <profiles>
+      <profile>
+          <id>release</id>
+          <build>
+              <plugins>
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-gpg-plugin</artifactId>
+                      <version>1.6</version>
+                      <executions>
+                          <execution>
+                              <id>sign-artifacts</id>
+                              <phase>verify</phase>
+                              <goals>
+                                  <goal>sign</goal>
+                              </goals>
+                          </execution>
+                      </executions>
+                  </plugin>
+              </plugins>
+          </build>
+      </profile>
+  </profiles>
+</project>
