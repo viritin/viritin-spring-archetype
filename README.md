@@ -11,5 +11,5 @@ Until the final version is out, you can use the SNAPSHOT with following command:
         -DarchetypeGroupId=in.virit  \
         -DarchetypeArtifactId=spring-app-archetype  \
         -DarchetypeRepository=https://oss.sonatype.org/content/repositories/snapshots/  \
-        -DarchetypeVersion=1.0-SNAPSHOT
+        -DarchetypeVersion=0.0.1-SNAPSHOT
 
