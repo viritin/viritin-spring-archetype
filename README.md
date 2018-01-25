@@ -1,7 +1,7 @@
 # Archetype for Vaadin + Spring Boot projects
 
 This is a WIP archetype for Vaadin + Spring Boot projects. The result is pretty much the same as you get from
-[start.spring.io](https://start.spring.io/), but with a UI class with an integration to a dummy Spring service.
+[start.spring.io](https://start.spring.io/), but with a ready setup for [add-on usage](https://vaadin.com/directory) and a UI class with an integration to a dummy Spring service.
 
 Note, the archetype is not regularly update to contain the latest Vaadin bugfix release, so check the latest version from vaadin.com/releases or use LATEST.
 
